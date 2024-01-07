@@ -4,6 +4,21 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-on-hover:hover {
+  animation: rotateAnimation 3s linear infinite;
+}
+
 :root {
   --blue-rgb: 237 245 255;
   --green-rgb: 125 161 35;
