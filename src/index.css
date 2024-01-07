@@ -15,9 +15,6 @@
   }
 }
 
-.rotate-on-hover:hover {
-  animation: rotateAnimation 3s linear infinite;
-}
 
 :root {
   --blue-rgb: 237 245 255;
