@@ -13,6 +13,8 @@
     "@react-spring/three": "^9.7.3",
     "@react-three/drei": "^9.93.0",
     "@react-three/fiber": "^8.15.13",
+    "maath": "^0.10.7",
+    "math-random": "^2.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.1"

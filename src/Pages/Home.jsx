@@ -2,7 +2,7 @@ import {Suspense} from 'react';
 import { Canvas } from '@react-three/fiber';
 import Loader from '../components/Loader';
 import Earth from '../models/earth';
-
+import Stars from '../models/stars';
 
 
 
@@ -30,11 +30,7 @@ const Home = () => {
     <section className='w-full h-screen relative'>
      <Canvas className='w-full h-screen bg-transparent' camera={{ position: [0, 0, 160], fov: 40 }}>
       <Suspense fallback={<Loader />}>
-        <directionalLight />
-        <ambientLight />
-        <pointLight />
-        <spotLight />
-        <hemisphereLight />
+        <Stars />
         <Earth 
           position = {earthPosition}
           scale = {earthScale}
