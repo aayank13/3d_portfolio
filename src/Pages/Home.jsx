@@ -4,17 +4,42 @@ import Loader from '../components/Loader';
 import Earth from '../models/earth';
 
 
+
+
 const Home = () => {
+
+  const adjustEarthForScreenSize = () => {
+    let screenScale, screenPosition;
+    let earthRotation = [0, 0, 0]; // Adjust as needed
+  
+    if (window.innerWidth < 768) {
+      screenScale = [0.8, 0.8, 0.8]; // Decrease the scale for smaller screens
+      screenPosition = [0, -6.5, -40]; // Move the Earth closer for smaller screens
+    } else {
+      screenScale = [1, 1, 1];
+      screenPosition = [0, -6.5, -60]; // Move the Earth further for larger screens
+    }
+  
+    return [screenScale, screenPosition, earthRotation];
+  }
+  
+
+  const [earthScale, earthPosition, earthRotation] = adjustEarthForScreenSize();
+
   return (
     <section className='w-full h-screen relative'>
-     <Canvas className='w-full h-screen bg-transparent' camera={{ near: 0.1, far: 1000}}>
+     <Canvas className='w-full h-screen bg-transparent' camera={{ position: [0, 0, 160], fov: 40 }}>
       <Suspense fallback={<Loader />}>
         <directionalLight />
         <ambientLight />
         <pointLight />
         <spotLight />
         <hemisphereLight />
-        <Earth />
+        <Earth 
+          position = {earthPosition}
+          scale = {earthScale}
+          rotation = {earthRotation}
+        />
       </Suspense>
 
      </Canvas>
