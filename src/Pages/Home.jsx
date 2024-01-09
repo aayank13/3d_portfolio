@@ -1,4 +1,4 @@
-import {Suspense} from 'react';
+import {Suspense, useState} from 'react';
 import { Canvas } from '@react-three/fiber';
 import Loader from '../components/Loader';
 import Earth from '../models/earth';
@@ -7,7 +7,7 @@ import Stars from '../models/stars';
 
 
 const Home = () => {
-
+  const [isRotating, setIsRotating] = useState(false);
   const adjustEarthForScreenSize = () => {
     let screenScale, screenPosition;
     let earthRotation = [0, 0, 0]; // Adjust as needed
@@ -28,13 +28,17 @@ const Home = () => {
 
   return (
     <section className='w-full h-screen relative'>
-     <Canvas className='w-full h-screen bg-transparent' camera={{ position: [0, 0, 160], fov: 40 }}>
+     <Canvas 
+     className={`w-full h-screen bg-transparent ${ isRotating ? "cursor-grabbing" : "cursor-grab"}`} 
+     camera={{ position: [0, 0, 160], fov: 40 }}>
       <Suspense fallback={<Loader />}>
-        <Stars />
+      <Stars />
         <Earth 
           position = {earthPosition}
           scale = {earthScale}
           rotation = {earthRotation}
+          isRotating = {isRotating}
+          setIsRotating = {setIsRotating}
         />
       </Suspense>
 
