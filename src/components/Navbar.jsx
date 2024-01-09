@@ -6,9 +6,9 @@ const Navbar = () => {
     <header className="header">
         <NavLink to="/" className="w-12 h-12 items-center justify-center flex">
             <img class="transition-all sticky motion-reduce:transition-none duration-1000 motion-reduce:animate-none w-12 hover:animate-spin ease-in-out rounded-full" src={aayank} loading="lazy" decoding="async" alt="Headshot"></img>
-            <h2 class="ml-2 text-xl font-medium">Aayan</h2>
+            <h2 class="ml-2 text-xl font-medium hover:text-2xl hover:text-blue-500">Aayan</h2>
         </NavLink>
-        <nav className="flex text-lg font-medium hover:underline">
+        <nav className="flex text-lg font-medium hover:text-xl hover:text-blue-500">
         <NavLink to="/contact" className={( {isActive }) => isActive ? 'text-blue-500' : 'text-black-500' }>
             Contact
         </NavLink>
